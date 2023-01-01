@@ -13,12 +13,18 @@ class GameBoard:
 
     def __init__(self, board_size, num_ships, name, type):
         self.board_size = board_size
-        self.board = ["." for x in range(board_size) for y in range(board_size)]
+        self.board = [["." for x in range(board_size)] for y in range(board_size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
         self.guesses = []
         self.ships = []
-    
-data = GameBoard(5, 4, "Marcos", type = "player")
-print(data.board_size)
+
+    def print_board(self):
+        for row in self.board:
+            print(" ".join(row))
+
+
+#data = GameBoard(5, 4, "Marcos", type="player")
+#board = data.print_board()
+#print(board)
