@@ -6,8 +6,8 @@ scores = {"computer": 0, "player": 0}
 class GameBoard:
     """
     Main game class, sets the board size, number of ships, 
-    players name and the game board type for computer or player
-    Contains methods for adding ships, guesses, players inputs
+    player's name and the game board type for computer or player.
+    Contains methods for adding ships, guesses, player's inputs
     and printing board.
     """
 
@@ -32,10 +32,19 @@ class GameBoard:
             return "Hit"
         else:
             return "Missed"
+    
+    def add_ships(self, x, y, type="computer"):
+        if len(self.ships) >= self.num_ships:
+            print("Error: You can not add more ships to the board!")
+        else:
+            self.ships.append((x, y))
+            if self.type == "player":
+                self.board[x][y] = "@"
 
 
 
-#data = GameBoard(5, 4, "Marcos", type="player")
-#guess = data.guess(1, 2)
-#print(guess)
-#print(data.print_board())
+
+data = GameBoard(5, 4, "Marcos", type="computer")
+guess = data.add_ships(1, 2, type="computer")
+print(data.ships)
+print(data.print_board())
