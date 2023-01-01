@@ -27,7 +27,7 @@ class GameBoard:
     def guess(self, x, y):
         self.guesses.append((x, y))
         self.board[x][y] = "X"
-        if (x,y) in self.ships:
+        if (x, y) in self.ships:
             self.board[x][y] = "*"
             return "Hit"
         else:
@@ -67,12 +67,14 @@ def random_num(size):
     Helper function to every time its called,
     generates a random number between 0 and the board size
     """
+
     return randint(0, size -1)
 
 def populate_board(board):
     """
     Randomnly populate ships on the boards instances
     """
+
     x = random_num(board.size)
     y = random_num(board.size)
     board.add_ships(x, y)
