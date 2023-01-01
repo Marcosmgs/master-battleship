@@ -11,13 +11,13 @@ class GameBoard:
     and printing board.
     """
 
-    def __init__(self, board_size, num_ships, name, type):
-        self.board_size = board_size
-        self.board = [["." for x in range(board_size)] for y in range(board_size)]
+    def __init__(self, size, num_ships, name, type):
+        self.size = size
+        self.board = [["." for x in range(size)] for y in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
-        self.guesses = [(1,2)]
+        self.guesses = []
         self.ships = []
 
     def print_board(self):
@@ -44,12 +44,12 @@ class GameBoard:
     def get_user_input(self):
         try:
             x_row = input("Enter the row of the ship: \n")
-            while int(x_row) > self.board_size - 1:
+            while int(x_row) > self.size - 1:
                 print("You Must Enter a Number between 0 and 4! \n")
                 x_row = input("Enter the row of the ship: \n")
 
             y_col = input("Enter the column of the ship: \n")
-            while int(y_col) > self.board_size - 1:
+            while int(y_col) > self.size - 1:
                 print("You Must Enter a Number between 0 and 4!")
                 y_col = input("Enter the column of the ship: \n")
             guess = (int(x_row), int(y_col))
@@ -73,11 +73,71 @@ def populate_board(board):
     """
     Randomnly populate ships on the boards instances
     """
-    x = random_num(board.board_size)
-    y = random_num(board.board_size)
-    board.add_ships(x, y)   
+    x = random_num(board.size)
+    y = random_num(board.size)
+    board.add_ships(x, y)
 
-#data = GameBoard(5, 4, "Marcos", type="player")
-#board = populate_board(data)
+def guess_maker(board):
+    """
+    Process all the guesses and return the results, if it is a computer guess it generates randomnly
+    and if it is a user guess, will get user input method to generats a valid guess.
+    """
+    
+    if board.type == "player":
+        x = random_num(board.size)
+        y = random_num(board.size)
+        computer_result = board.guess(x, y)
+        print(f"Computer guesses: {(x, y)}")
+        print(f"Computer {computer_result} this round")
+    else:
+        if board.type == "computer":
+            x, y = board.get_user_input()
+            player_result = board.guess(int(x), int(y))
+            print(f"Player guesses: {(int(x), int(y))}")
+            print(f"Player {player_result} this round!")
+        return player_result
+
+    return computer_result
+
+def play_game(player_game, computer_game):
+    """
+    Runs the game and increment scores util user tell otherwise
+    """
+
+    keep_on = True
+    while keep_on:
+        print(f"{player_game.name}'s Board:")
+        player_game.print_board()
+        print()
+        print("---------- VS ----------")
+        print()
+        print("Computer's Board:")
+        computer_game.print_board()
+
+        player_results = guess_maker(computer_game)
+        computer_results = guess_maker(player_game)
+        
+        print("=" * 20)
+        if player_results == "Hit":
+            scores["player"] += 1
+        else:
+            if computer_results == "Hit":
+                scores["computer"] += 1
+        print(f"The Scores Are:")
+        print(f"Computer: {scores['computer']} {player_game.name}: {scores['player']}")
+        print("=" * 20)
+
+        keep_playing = input("Type any input to keep play or N to quit game! \n")
+        if keep_playing.lower() == "n":
+            print("Now closing the game...")
+            keep_on = False
+        else:
+            print("You have decided to play another round...")
+    print("Thanks for playing")
+
+player = GameBoard(5, 4, "Marcos", type="player")
+computer = GameBoard(5, 4, "na", type="computer")
+play_game(player, computer)
+#board = guess_maker(data)
+#print(board)
 #print(data.print_board())
-#print(data.ships)
