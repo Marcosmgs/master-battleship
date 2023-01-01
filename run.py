@@ -135,9 +135,32 @@ def play_game(player_game, computer_game):
             print("You have decided to play another round...")
     print("Thanks for playing")
 
-player = GameBoard(5, 4, "Marcos", type="player")
-computer = GameBoard(5, 4, "na", type="computer")
-play_game(player, computer)
-#board = guess_maker(data)
-#print(board)
-#print(data.print_board())
+def start_game():
+    """
+    Start the game every time it is called reseting scores. Sets size, number of ships
+    and alocate it on the boards for a new game.
+    """
+
+    size = 5
+    num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    print("#" * 35)
+    print("    Battleship Master Challenge")
+    print(f"  Board Size: {size} Number of ships: {num_ships}")
+    print("  Top left corner is row: 0 col: 0")
+    print("#" * 35)
+    print("_" * 35)
+    name = input("Please enter your name: \n")
+    print("_" * 35)
+
+    computer_game = GameBoard(size, num_ships, "computer", type="computer")
+    player_game = GameBoard(size, num_ships, name, type="player")
+
+    for _ in range(num_ships):
+        populate_board(player_game)
+        populate_board(computer_game)
+
+    play_game(player_game, computer_game)
+
+start_game()
