@@ -17,7 +17,7 @@ class GameBoard:
         self.num_ships = num_ships
         self.name = name
         self.type = type
-        self.guesses = []
+        self.guesses = [(1,2)]
         self.ships = []
 
     def print_board(self):
@@ -41,10 +41,30 @@ class GameBoard:
             if self.type == "player":
                 self.board[x][y] = "@"
 
+    def get_user_input(self):
+        try:
+            x_row = input("Enter the row of the ship: \n")
+            while int(x_row) > self.board_size - 1:
+                print("You Must Enter a Number between 0 and 4! \n")
+                x_row = input("Enter the row of the ship: \n")
+
+            y_col = input("Enter the column of the ship: \n")
+            while int(y_col) > self.board_size - 1:
+                print("You Must Enter a Number between 0 and 4!")
+                y_col = input("Enter the column of the ship: \n")
+            guess = (int(x_row), int(y_col))
+            if guess not in self.guesses:
+                return int(x_row), int(y_col)
+            else:
+                print("You already guessed this coordinates!")
+                return self.get_user_input()
+        except ValueError:
+            print("Not valid input, please reenter coordinates.")
+            return self.get_user_input()
 
 
 
-data = GameBoard(5, 4, "Marcos", type="computer")
-guess = data.add_ships(1, 2, type="computer")
-print(data.ships)
-print(data.print_board())
+
+#data = GameBoard(5, 4, "Marcos", type="computer")
+#x, y = data.get_user_input()
+#print(x, y)
