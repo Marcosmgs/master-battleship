@@ -62,16 +62,22 @@ class GameBoard:
             print("Not valid input, please reenter coordinates.")
             return self.get_user_input()
 
-def random_point(size):
+def random_num(size):
     """
     Helper function to every time its called,
     generates a random number between 0 and the board size
     """
     return randint(0, size -1)
 
+def populate_board(board):
+    """
+    Randomnly populate ships on the boards instances
+    """
+    x = random_num(board.board_size)
+    y = random_num(board.board_size)
+    board.add_ships(x, y)   
 
-
-
-#data = GameBoard(5, 4, "Marcos", type="computer")
-rand = random_point(5)
-print(rand)
+#data = GameBoard(5, 4, "Marcos", type="player")
+#board = populate_board(data)
+#print(data.print_board())
+#print(data.ships)
