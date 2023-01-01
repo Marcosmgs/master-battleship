@@ -23,8 +23,19 @@ class GameBoard:
     def print_board(self):
         for row in self.board:
             print(" ".join(row))
+    
+    def guess(self, x, y):
+        self.guesses.append((x, y))
+        self.board[x][y] = "X"
+        if (x,y) in self.ships:
+            self.board[x][y] = "*"
+            return "Hit"
+        else:
+            return "Missed"
+
 
 
 #data = GameBoard(5, 4, "Marcos", type="player")
-#board = data.print_board()
-#print(board)
+#guess = data.guess(1, 2)
+#print(guess)
+#print(data.print_board())
