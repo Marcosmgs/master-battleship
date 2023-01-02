@@ -89,14 +89,14 @@ def guess_maker(board):
         x = random_num(board.size)
         y = random_num(board.size)
         computer_result = board.guess(x, y)
-        print(f"Computer guesses: {(x, y)}")
-        print(f"Computer {computer_result} this round")
+        print(f"Computer coordinates: {(x, y)}")
+        print(f"Computer {computer_result} this Round!")
     else:
         if board.type == "computer":
             x, y = board.get_user_input()
             player_result = board.guess(int(x), int(y))
-            print(f"Player guesses: {(int(x), int(y))}")
-            print(f"Player {player_result} this round!")
+            print(f"Captain coordinates: {(int(x), int(y))}")
+            print(f"Captain {player_result} this Round!")
         return player_result
 
     return computer_result
@@ -108,10 +108,10 @@ def play_game(player_game, computer_game):
 
     keep_on = True
     while keep_on:
-        print(f"{player_game.name}'s Board:")
+        print(f"Captain {player_game.name}'s Board:")
         player_game.print_board()
         print()
-        print("---------- VS ----------")
+        print("-" * 27, " VS ", "-" * 27)
         print()
         print("Computer's Board:")
         computer_game.print_board()
@@ -119,22 +119,22 @@ def play_game(player_game, computer_game):
         player_results = guess_maker(computer_game)
         computer_results = guess_maker(player_game)
         
-        print("=" * 20)
+        print("=" * 50)
         if player_results == "Hit":
             scores["player"] += 1
         else:
             if computer_results == "Hit":
                 scores["computer"] += 1
-        print(f"The Scores Are:")
-        print(f"Computer: {scores['computer']} {player_game.name}: {scores['player']}")
-        print("=" * 20)
+        print(f"                 The Scores Are:")
+        print(f"              Computer: {scores['computer']} {player_game.name}: {scores['player']}")
+        print("=" * 50)
 
-        keep_playing = input("Type any input to keep play or N to quit game! \n")
+        keep_playing = input("Type any input to keep playing or N to quit game! \n")
         if keep_playing.lower() == "n":
             print("Now closing the game...")
             keep_on = False
         else:
-            print("You have decided to play another round...")
+            print("You have decided to play another round... \n")
     print("Thanks for playing")
 
 def start_game():
@@ -147,14 +147,19 @@ def start_game():
     num_ships = 4
     scores["computer"] = 0
     scores["player"] = 0
-    print("#" * 35)
-    print("    Battleship Master Challenge")
-    print(f"  Board Size: {size} Number of ships: {num_ships}")
-    print("  Top left corner is row: 0 col: 0")
-    print("#" * 35)
-    print("_" * 35)
-    name = input("Please enter your name: \n")
-    print("_" * 35)
+    print("#" * 60)
+    print("-" * 60)
+    print("        Welcome to The Battleship Master Challenge!")
+    print("Find the enemy ships coordinates and destroy them one by one")
+    print("-" * 60)
+    print(f"             Board Size: {size} Number of ships: {num_ships}")
+    print("             Top left corner is row: 0 col: 0")
+    print("#" * 60)
+    print("_" * 60)
+    name = input("Please enter your name commander: \n")
+    print("_" * 60, "\n")
+    print(f"              Welcome On Board Captain {name}.")
+    print("_" * 60, "\n")
 
     computer_game = GameBoard(size, num_ships, "computer", type="computer")
     player_game = GameBoard(size, num_ships, name, type="player")
