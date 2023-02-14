@@ -1,0 +1,21 @@
+Run.py raises 4 unique errors
+    The code has consistent and meaningful naming conventions, which is a good practice. 
+    However, it fails to pass a pep8 validator with 4 unique errors. When the errors are corrected, the structure will be great.
+    Overall the project matches the functionality described in the README.
+
+    Copied code from run.py file and pasted on pep8 validator
+    Documented all the errors here
+    I have go through the code using pep8 validation and correct all the erros in place.
+    Most of the errors were spacing and breaks related no sweat!
+    Copied code from pep8 back to run.py file
+    Teste the code and it went smoothtly 
+
+
+The README isn't particularly cohesive or well-organised, and/or vital sections are missing from the file entirely
+	The README is structured. The README contains screenshots of the finished product. However, it is missing the Credits section. 
+    It is better to include the Credits section in the README. Additionally the Testing section is vague and lacking in details for testing steps taken or documented results of validation checkers. 
+    It is noted that most PEP8 problems were fixed, however a number of issues remain.
+
+The README file contains a note about the use of the PEP8 validation tool, however, no results are documented
+    The README file contains a note about the use of the PEP8 validation tool, and results are only mentioned. 
+    Consider documenting the PEP8 results, test input validations, unexpected user behavior and edge cases.
