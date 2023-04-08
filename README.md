@@ -82,3 +82,21 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 3. Set buildpacks to Python and NodeJS in that order.
 4. Link the Heroku app to the repository on GitHub.
 5. Click on Deploy.
+
+## Credits
+
+### Code
+- __Code Institute for the deployment terminal.__
+- __Tutorial on battleship game from Code Institute.__
+- __Code Institute for the CI Python Linter used throughout the project at every stage of the building.__
+
+### Content
+- __Wikipedia details and rules of a battleship game.__
+
+### Media
+- __Code Institute for the README.md file tutorial.__
+- __Code Institute for the project template [CI Template](https://github.com/Code-Institute-Org/python-essentials-template)__
+
+### Acknowledgements
+- __My Mentor Jubril Akolade for his patience and helpful feedback regarding my project re-submission.__
+- __Slack Community my fellow students, as well as mentors and CI staff.__
