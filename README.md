@@ -1,9 +1,10 @@
 # The Battleship Master Challenge!
 
-Here is Live version of the game: 
-[The Battleship Master Challenge](https://pep8ci.herokuapp.com/)
+Here is the live version of my project: 
+[The Battleship Master Challenge](https://master-battleship.herokuapp.com/)
 
-This Battleship board game is the classic game of naval combat that brings together competition, strategy and excitement! In head-to-head battle, two players search for the enemy's fleet of ships and destroys them one by one.
+This Battleship board game is the classic game of naval combat that brings together competition, strategy and excitement! In head-to-head battle, two players search for the enemy's fleet of ships and destroys them one by one. 
+You can find more about BTS game here on [Wikipedia - Battleship Game](https://en.wikipedia.org/wiki/Battleship_(game))
 
 ![Responsive Mockup Diferent Screens Sizes](assets/images/responsive-mockscreen.png)
 
@@ -63,11 +64,25 @@ The game generates two class intances one for the player e another for the compu
 
 GameBoard class has 4 methods to help run the game, the print_board method to print out the current board state, a guess method to return the result of each guess made, a get_user_input method to prompt user input and return a valid data and an add_ships method to add ships to the boards instances.
 
-## Testing 
+## Testing
 
 This game has been put through testing since the beginning and at every stage of the building through terminal, I made use of [CI Python Linter](https://pep8ci.herokuapp.com/) I had some errors, most of them were whitespaces, and some were variables that were not in use. But over all I was able to fix most of them only few "PROBLEMS" left which they are nothing to worrie about. 
 
 During the building process, an error encountered was due to the function used to generate a random number for the computer's choice. I had subtract -1 to match the index to fix this error.
+
+### Validator Testing
+
+### PEP8
+__The following errors were found and resolved__
+
+![Pending Errors](assets/images/Pending-Erros.png)
+
+- _Blank lines: this was resolved by adding two blank lines before and after each class or a function._
+- _Missing whitespace was resolved adding a space after the operator._
+- _Trailing whitespace: this was resolved by removing whitespaces at the end of lines and on blank lines._
+- _Continuation line under-indented for visual indent_
+
+![No Pending Errors](assets/images/No-Pending-Errors.png)
 
 ### Unfixed Bugs
 
