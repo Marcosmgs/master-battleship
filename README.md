@@ -60,7 +60,7 @@ I inspire my data model on the battleship prototype project, I changed the code 
 
 The GameBoard class contains number of ships, boards size, coordinates guessed, ships coordinates, name and type of instance.
 
-The game generates two class intances one for the player e another for the computer, both instaces boards are randomly populated with ships.
+The game generates two class intances one for the player and another for the computer, both instaces boards are randomly populated with ships.
 
 GameBoard class has 4 methods to help run the game, the print_board method to print out the current board state, a guess method to return the result of each guess made, a get_user_input method to prompt user input and return a valid data and an add_ships method to add ships to the boards instances.
 
